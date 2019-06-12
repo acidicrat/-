@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    
+	<head>
+	    
+		<link rel="stylesheet" href="{{ STATIC_URL }}/static/css/article.css">
+		
+		<title>Авторизация на сайт</title>    
+	
+	</head>
+    
+	<body>        
+	    
+		<div class="content">
+		
+		    <h2 class="all-articles"><a href="/">Все статьи</a></h2>
+			
+			<h1>Авторизируйтесь</h1>
+		    
+			<form  method="POST">
+			
+			    <p><h2>Логин:</h2></p>
+		        
+				<p><input type="text" size="50" name="username" placeholder=" " id='id_username'></p>
+				
+				<p><h2>Пароль:</h2></p>
+				
+				<p><input type="password" size="50" name="password" placeholder=" " id='id_password1' ></p>
+			
+			    {% csrf_token %}
+			
+				<p><input type="submit" value="Войти"></p>
+            
+			</form>
+		    
+			{% if error %}
+				{% for error in error %}
+				<p> {{error}} </p>
+				{% endfor %}
+			{% endif %}
+        
+		</div>
+	
+	</body> 
+
+</html>

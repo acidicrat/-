@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    
+	<head>
+	    
+		<link rel="stylesheet" href="{{ STATIC_URL }}/static/css/article.css">
+		
+		<title>Регистрация на сайт</title>    
+	
+	</head>
+    
+	<body>        
+	    
+		<div class="content">
+		
+		    <h2 class="all-articles"><a href="/">Все статьи</a></h2>
+			
+			<h1>Регистрация нового пользователя</h1>
+		    
+			<form method="POST">{% csrf_token %}
+			
+			    <p><h2>Логин:</h2></p>
+		        
+				<p><input type="text" size="50" name="username" placeholder="Придумайте логин" id='id_username'></p>
+			    
+				<p><h2>Email:</h2></p>
+				
+				<p><input type="email" size="50" name="email" placeholder="Укажите ваш Email" id='id_email'></p>
+			    
+				<p><h2>Пароль:</h2></p>
+				
+				<p><input type="password" size="50" name="password1" placeholder="Придумайте пароль" id='id_password1' ></p>
+				
+				<p><h2>Подтвердите пароль:</h2></p>
+				
+				<p><input type="password" size="50" name="password2" placeholder="Повторите пароль" id='id_password2'></p>
+				
+				<p><input type="submit" value="зарегистрироваться"></p>
+            
+			</form>
+		    
+			{% if error %}
+				{% for error in error %}
+				<p> {{error}} </p>
+				{% endfor %}
+			{% endif %}
+        
+		</div>
+	
+	</body> 
+
+</html>
